@@ -21,6 +21,7 @@ namespace Microsoft.eShopWeb.Web.Services
         private readonly IAsyncRepository<CatalogItem> _itemRepository;
         private readonly IAsyncRepository<CatalogBrand> _brandRepository;
         private readonly IAsyncRepository<CatalogType> _typeRepository;
+        //private readonly IAsyncRepository<Catalog> _catalogRepo;
         private readonly IUriComposer _uriComposer;
 
         public CatalogViewModelService(
