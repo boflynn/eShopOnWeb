@@ -15,13 +15,18 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities.CatalogAggregate
             string description,
             string name,
             string pictureUri,
-            decimal price)
+            decimal price,
+            CatalogBrand catalogBrand,
+            CatalogType catalogType)
         {
             Guard.Against.Null(catalogBrandId, nameof(catalogBrandId));
             Guard.Against.Null(catalogTypeId, nameof(catalogTypeId));
             Guard.Against.Null(price, nameof(price));
 
             Guard.Against.NullOrEmpty(name, nameof(name));
+
+            CatalogBrand = catalogBrand;
+            CatalogType = catalogType;
         }
 
         public int CatalogBrandId { get; set; }
@@ -30,5 +35,7 @@ namespace Microsoft.eShopWeb.ApplicationCore.Entities.CatalogAggregate
         public string Name { get; set; }
         public string PictureUri { get; set; }
         public decimal Price { get; set; }
+        public CatalogBrand CatalogBrand { get; set; }
+        public CatalogType CatalogType { get; set; }
     }
 }

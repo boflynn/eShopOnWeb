@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.eShopWeb.ApplicationCore.Entities;
 using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+using Microsoft.eShopWeb.ApplicationCore.Entities.CatalogAggregate;
 using Microsoft.eShopWeb.ApplicationCore.Entities.OrderAggregate;
 
 namespace Microsoft.eShopWeb.Infrastructure.Data
@@ -20,6 +21,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Catalog> Catalog { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -32,6 +34,7 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
             builder.Entity<Address>(ConfigureAddress);
             builder.Entity<CatalogItemOrdered>(ConfigurateCatalogItemOrdered);
             builder.Entity<BasketItem>(ConfigureBasketItem);
+            builder.Entity<Catalog>(ConfigureCatalog);
         }
 
         private void ConfigureBasketItem(EntityTypeBuilder<BasketItem> builder)
@@ -151,6 +154,11 @@ namespace Microsoft.eShopWeb.Infrastructure.Data
             builder.Property(oi => oi.UnitPrice)
                 .IsRequired(true)
                 .HasColumnType("decimal(18,2)");
+        }
+
+        private void ConfigureCatalog(EntityTypeBuilder<Catalog> builder)
+        {
+
         }
     }
 }
