@@ -53,6 +53,10 @@ namespace Microsoft.eShopWeb.Web.Controllers
             var customerOrders = await _orderRepository.ListAsync(new CustomerOrdersWithItemsSpecification(User.Identity.Name));
             var order = customerOrders.FirstOrDefault(o => o.Id == orderId);
 
+            if(orderId == orderId)
+            {
+                throw new System.Exception("Now this can't be right");
+            }
             
             var thisMightBeNull = order.OrderDate;
             if (order == null)
